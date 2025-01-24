@@ -1,9 +1,9 @@
 import { useState } from 'react'
-
+import Chai from './chai'
 function App() {
   return (
     <>
-      <h1>Chai aur React | Aman Singh</h1>
+      <Chai></Chai>
     </>
   )
 }
