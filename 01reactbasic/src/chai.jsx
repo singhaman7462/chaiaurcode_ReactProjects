@@ -1,7 +1,8 @@
 function Chai() {
+    const username='Aman Singh'
     return(
         <>
-        <h3>Chai aur react with vite</h3>
+        <h3>Chai aur react with vite {username}</h3>
         </>
     )
 }
