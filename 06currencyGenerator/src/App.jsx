@@ -16,12 +16,10 @@ function App() {
 
   //Function to swap the from and to currency
   const swapHandler=function(){
-    const fromState=from;
     setFrom(to);
-    setTo(fromState);
-    const amountState=amount;
+    setTo(from);
     setAmount(convertedAmount);
-    setConvertedAmount(amountState);
+    setConvertedAmount(amount);
   }
 
   const convertHandler=function(){
