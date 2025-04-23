@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector ,useDispatch } from 'react-redux'
-import { removeTodo } from '../features/todo/todoSlice'
+import { removeTodo,updateTodo } from '../features/todo/todoSlice'
 
 function Todos() {
   const todos=useSelector(state => state.todos);
@@ -34,6 +34,13 @@ function Todos() {
                 />
               </svg>
             </button>
+            {/* <button
+            onClick={(e)=>{
+              dispatch(updateTodo(todo.id,e.target.value));
+            }}
+            >
+              Edit
+            </button> */}
           </li>
         ))}
       </ul>
