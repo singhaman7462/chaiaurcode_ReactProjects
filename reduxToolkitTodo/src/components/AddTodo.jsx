@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { addTodo } from '../features/todo/todoSlice';
+import { useDispatch ,useSelector} from 'react-redux';
+import { addTodo ,updateTodo,setEditId} from '../features/todo/todoSlice';
 
 
-function AddTodo() {
+function AddTodo({inputRef}) {
 const [input,setInput]=useState('');
-
+const toEdit=useSelector(state=>state.editId);
 const dispatch=useDispatch();
 
 const addTodoHandler = (e) =>{
   e.preventDefault();
-  dispatch(addTodo(input));
+  if(toEdit==null){
+    dispatch(addTodo(input));
+   }
+   else{
+    dispatch(updateTodo({id:toEdit,text:input}));
+    dispatch(setEditId(null));
+   }
+ 
   setInput(''); 
 }
 
@@ -22,6 +29,7 @@ const addTodoHandler = (e) =>{
         placeholder="Enter a Todo..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        ref={inputRef}
       />
       <button
         type="submit"
